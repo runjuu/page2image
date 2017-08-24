@@ -1,0 +1,12 @@
+{
+	"compilerOptions": {
+		"target": "es5",
+		"lib": ["es7"],
+		"module": "commonjs",
+		"noImplicitAny": true,
+		"removeComments": true
+	},
+	"files": [
+		"index.ts"
+	]
+}
