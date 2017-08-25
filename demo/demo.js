@@ -11,6 +11,12 @@ const screenshot = new Screenshot({
   },
   viewportConfig: { width: 1920, height: 1080 },
   screenshotConfig: { fullPage: true, path: 'screenshot.png' },
+  launchConfig: {
+    args: [
+      '--no-sandbox',
+      '--disable-setuid-sandbox',
+    ],
+  },
 });
 
 screenshot

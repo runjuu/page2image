@@ -8,8 +8,8 @@ function checkBeforeRun(config, callback) {
 class Screenshot {
 
   static async init(config) {
-    if (!this.browser) this.browser = await puppeteer.launch();
     Object.assign(this.config, config);
+    if (!this.browser) this.browser = await puppeteer.launch(this.config.launchConfig);
   }
 
   static async takeScreenshot(url) {
