@@ -1,0 +1,54 @@
+import puppeteer from 'puppeteer';
+
+function checkBeforeRun(config, callback) {
+  if (config) return callback(config);
+  return Promise.resolve('skip');
+}
+
+class Screenshot {
+
+  static async init(config) {
+    if (this.browser) this.browser.close();
+    this.browser = await puppeteer.launch();
+    Object.assign(this.config, config);
+  }
+
+  static async takeScreenshot(url) {
+    if (!url) return null;
+
+    await checkBeforeRun(!this.browser, this.init);
+
+    const page = await this.browser.newPage();
+    const {
+      waitForFunction, waitUntil,
+      screenshotConfig, viewportConfig,
+    } = this.config;
+
+    await checkBeforeRun(viewportConfig, page.setViewport.bind(page));
+    await page.goto(url, { waitUntil });
+    await checkBeforeRun(waitForFunction, page.waitForFunction.bind(page));
+
+    const pic = await page.screenshot(screenshotConfig);
+
+    page.close();
+    return pic;
+  }
+
+  constructor(config) {
+    this.init = Screenshot.init.bind(this);
+    this.takeScreenshot = Screenshot.takeScreenshot.bind(this);
+    this.config = Object.assign({
+      waitForFunction: null,
+      waitUntil: null,
+      viewportConfig: null,
+      screenshotConfig: {
+        quality: 80,
+        type: 'jpeg',
+        fullPage: true,
+      },
+    }, config);
+  }
+
+}
+
+export default Screenshot;

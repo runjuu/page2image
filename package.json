@@ -1,10 +1,11 @@
 {
   "name": "page2image",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test-server": "tsc && node index.js",
+    "build": "babel app.js --out-file index.js && babel src --out-dir lib",
+    "demo": "npm run build && node demo/demo.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -19,11 +20,18 @@
   "author": "Runjuu",
   "license": "MIT",
   "dependencies": {
-    "@types/koa": "^2.0.39",
-    "koa": "^2.3.0",
     "puppeteer": "^0.9.0"
   },
   "devDependencies": {
-    "typescript": "^2.4.2"
+    "babel-cli": "^6.26.0",
+    "babel-core": "^6.26.0",
+    "babel-eslint": "^7.2.3",
+    "babel-plugin-transform-class-properties": "^6.24.1",
+    "babel-preset-env": "^1.6.0",
+    "eslint": "^4.5.0",
+    "eslint-config-airbnb": "^15.1.0",
+    "eslint-plugin-import": "^2.7.0",
+    "eslint-plugin-jsx-a11y": "^6.0.2",
+    "eslint-plugin-react": "^7.3.0"
   }
 }

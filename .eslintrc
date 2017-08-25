@@ -1,0 +1,25 @@
+{
+  "extends": "airbnb",
+  "parser": "babel-eslint",
+  "rules": {
+    "jsx-a11y/href-no-hash": "off",
+    "import/no-extraneous-dependencies": "off",
+    "padded-blocks": ["error", { "classes": "always" }]
+  },
+  "globals": {
+    "describe": true,
+    "it": true
+  },
+  "parserOptions": {
+    "ecmaVersion": 6,
+    "sourceType": "module",
+    "ecmaFeatures": {
+      "modules": true
+    },
+    "experimentalDecorators": true
+  },
+  "env": {
+    "browser": true,
+    "node": true
+  }
+}

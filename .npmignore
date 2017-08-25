@@ -57,5 +57,8 @@ typings/
 # dotenv environment variables file
 .env
 
-# Demo
-demo.js
+.idea/
+demo/
+src/
+app.js
+
