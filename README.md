@@ -78,7 +78,7 @@ default is 768px
 > page's height, default will take a full page screenshot.
 
 #### type
-default is'png'
+default is 'png'
 > images type
 
 #### quality
