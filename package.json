@@ -1,7 +1,7 @@
 {
   "name": "page2image",
-  "version": "1.2.5",
-  "description": "📷 secondary package Headless Chrome to make screenshot easier and also provide CLI command to take screenshot",
+  "version": "1.2.6",
+  "description": "📷 page2image is a npm package for taking screenshot which also provides CLI command",
   "main": "index.js",
   "scripts": {
     "build": "node bin/build.js",
