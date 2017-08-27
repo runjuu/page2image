@@ -1,7 +1,7 @@
 {
   "name": "page2image",
-  "version": "1.2.4",
-  "description": "it's a npm package by secondary package Headless Chrome and also provide CLI command",
+  "version": "1.2.5",
+  "description": "📷 secondary package Headless Chrome to make screenshot easier and also provide CLI command to take screenshot",
   "main": "index.js",
   "scripts": {
     "build": "node bin/build.js",
