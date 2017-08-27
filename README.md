@@ -5,7 +5,7 @@
 [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](https://github.com/Runjuu/page2image/pulls)
 [![MIT Licence](https://badges.frapsoft.com/os/mit/mit.svg?v=103)](https://opensource.org/licenses/mit-license.php)
 
-> 😀 it's a npm package by secondary package [Headless Chrome](https://developers.google.com/web/updates/2017/04/headless-chrome) and also provide [CLI](https://github.com/Runjuu/page2image#using-by-cli) command
+😀 it's a npm package by secondary package [Headless Chrome](https://developers.google.com/web/updates/2017/04/headless-chrome) and also provide [CLI](https://github.com/Runjuu/page2image#using-by-cli) command
 
 ## Using By Module 📦
 
@@ -42,10 +42,10 @@ screenshot
 #### takeScreenshot(url:string)
 Accept a url string as an incoming value and will return an image Buffer
 
-#### init([Config](https://github.com/Runjuu/page2image#config))
+#### init([Config:object](https://github.com/Runjuu/page2image#config))
 Accept a [Config](https://github.com/Runjuu/page2image#config) object and next takeScreenshot will using new config to take screenshot
 
-### Config
+### Config: {}
 
 - [waitUntil](https://github.com/googlechrome/puppeteer/blob/HEAD/docs/api.md#pagegotourl-options)
 - [waitForFunction](https://github.com/googlechrome/puppeteer/blob/HEAD/docs/api.md#pagewaitforfunctionpagefunction-options-args)
@@ -61,7 +61,7 @@ npm i page2image --global
 
 ### Quick Examples
 ```bash
-page2image https://github.com/Runjuu --width=1366 --height=768 --type=jpeg --quality=80 --fullPage
+page2image https://github.com/Runjuu --width=1366 --type=jpeg --quality=80
 ```
 
 ### Config
@@ -74,7 +74,7 @@ page's width
 > default 1366px
 
 ##### height
-page's height, but unless you using `--fullPage=false`, otherwise height is useless
+page's height, default will take a full page screenshot.
 > default 768px
 
 ##### type
@@ -84,10 +84,6 @@ images type
 ##### quality
 images quality, but if the type is 'png', quality will not take effect
 > default 100
-
-##### fullPage
-if true, take a full page screenshot, otherwise images height with as same as page's height
-> default true
 
 <br/><hr/>
 ### if you have any questions 🤔 => [new issues](https://github.com/Runjuu/page2image/issues/new)
