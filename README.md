@@ -67,21 +67,21 @@ page2image https://github.com/Runjuu --width=1366 --type=jpeg --quality=80
 ### Config
 In fact, each arguments could be found in [puppeteer's screenshot options](https://github.com/googlechrome/puppeteer/blob/HEAD/docs/api.md#pagescreenshotoptions)
 
-#### suppot
+### Suppot Config
 
-##### width
+#### width
 default 1366px
 > page's width
 
-##### height
+#### height
 default 768px
 > page's height, default will take a full page screenshot.
 
-##### type
+#### type
 default 'png'
 > images type
 
-##### quality
+#### quality
 default 100
 > images quality, but if the type is 'png', quality will not take effect
 
