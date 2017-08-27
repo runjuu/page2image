@@ -5,7 +5,7 @@
 [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](https://github.com/Runjuu/page2image/pulls)
 [![MIT Licence](https://badges.frapsoft.com/os/mit/mit.svg?v=103)](https://opensource.org/licenses/mit-license.php)
 
-😀 it's a npm package by secondary package [Headless Chrome](https://developers.google.com/web/updates/2017/04/headless-chrome) and also provide [CLI](https://github.com/Runjuu/page2image#using-by-cli) command
+😀 page2image is a npm package for taking screenshot by secondary package [Headless Chrome](https://developers.google.com/web/updates/2017/04/headless-chrome) and also provide [CLI](https://github.com/Runjuu/page2image#using-by-cli) command
 
 ## Using By Module 📦
 
@@ -40,10 +40,10 @@ screenshot
 ### Methods
 
 #### takeScreenshot(url:string)
-Accept a url string as an incoming value and will return an image Buffer
+Accept a url string as an argument and return an image Buffer
 
 #### init([Config:object](https://github.com/Runjuu/page2image#config))
-Accept a [Config](https://github.com/Runjuu/page2image#config) object and next takeScreenshot will using new config to take screenshot
+Accept a [Config](https://github.com/Runjuu/page2image#config) object and next time calling takeScreenshot will using new config to take screenshot
 
 ### Config: {}
 
