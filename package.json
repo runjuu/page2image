@@ -4,9 +4,12 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "build": "babel app.js --out-file index.js && babel src --out-dir lib",
+    "build": "node bin/build.js",
     "demo": "npm run build && node demo/demo.js",
     "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "bin": {
+    "page2image": "bin/build/screenshot.js"
   },
   "repository": {
     "type": "git",
@@ -20,7 +23,9 @@
   "author": "Runjuu",
   "license": "MIT",
   "dependencies": {
-    "puppeteer": "^0.9.0"
+    "args-parser": "^1.1.0",
+    "colors": "^1.1.2",
+    "puppeteer": "^0.10.1"
   },
   "devDependencies": {
     "babel-cli": "^6.26.0",
@@ -32,6 +37,7 @@
     "eslint-config-airbnb": "^15.1.0",
     "eslint-plugin-import": "^2.7.0",
     "eslint-plugin-jsx-a11y": "^6.0.2",
-    "eslint-plugin-react": "^7.3.0"
+    "eslint-plugin-react": "^7.3.0",
+    "shelljs": "^0.7.8"
   }
 }
