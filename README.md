@@ -70,20 +70,20 @@ In fact, each arguments could be found in [puppeteer's screenshot options](https
 #### suppot
 
 ##### width
-page's width
-> default 1366px
+default 1366px
+> page's width
 
 ##### height
-page's height, default will take a full page screenshot.
-> default 768px
+default 768px
+> page's height, default will take a full page screenshot.
 
 ##### type
-images type
-> default 'png'
+default 'png'
+> images type
 
 ##### quality
-images quality, but if the type is 'png', quality will not take effect
-> default 100
+default 100
+> images quality, but if the type is 'png', quality will not take effect
 
 <br/><hr/>
 ### 🤔 have any questions? 👉 [new issues](https://github.com/Runjuu/page2image/issues/new) 😉
