@@ -1,6 +1,11 @@
 # page2image
 
-> it's a npm package by secondary package [Headless Chrome](https://developers.google.com/web/updates/2017/04/headless-chrome) and also provide CLI command
+[![npm version](https://badge.fury.io/js/page2image.svg)](https://www.npmjs.com/package/page2image)
+[![Total downloads](https://img.shields.io/npm/dt/page2image.svg)](https://www.npmjs.com/package/page2image)
+[![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](https://github.com/Runjuu/page2image/pulls)
+[![MIT Licence](https://badges.frapsoft.com/os/mit/mit.svg?v=103)](https://opensource.org/licenses/mit-license.php)
+
+> it's a npm package by secondary package [Headless Chrome](https://developers.google.com/web/updates/2017/04/headless-chrome) and also provide [CLI](https://github.com/Runjuu/page2image#using-by-cli) command
 
 ## Using By Module
 
