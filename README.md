@@ -86,4 +86,4 @@ images quality, but if the type is 'png', quality will not take effect
 > default 100
 
 <br/><hr/>
-### if you have any questions 🤔 => [new issues](https://github.com/Runjuu/page2image/issues/new)
+### 🤔 have any questions? 👉 [new issues](https://github.com/Runjuu/page2image/issues/new) 😉
