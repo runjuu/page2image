@@ -10,7 +10,7 @@
 ## Using By Module
 
 ### Install
-```console
+```bash
 npm i page2image --save
 ```
 
@@ -55,12 +55,12 @@ Accept a [Config](https://github.com/Runjuu/page2image#config) object and next t
 ## Using By CLI
 
 ### Install
-```console
+```bash
 npm i page2image --global
 ```
 
 ### Quick Examples
-```console
+```bash
 page2image https://github.com/Runjuu --width=1366 --height=768 --type=jpeg --quality=80 --fullPage
 ```
 
