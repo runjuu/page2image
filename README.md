@@ -61,7 +61,7 @@ npm i page2image --global
 
 ### Quick Examples
 ```bash
-page2image https://github.com/Runjuu --width=1366 --type=jpeg --quality=80
+page2image https://github.com/Runjuu --type=jpeg --quality=80
 ```
 
 ### Config
