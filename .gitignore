@@ -60,6 +60,6 @@ typings/
 /.idea
 /lib
 /index.js
-/bin/build
+/buildBin
 *.png
 *.jpg

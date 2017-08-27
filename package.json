@@ -1,6 +1,6 @@
 {
   "name": "page2image",
-  "version": "1.1.2",
+  "version": "1.2.1",
   "description": "",
   "main": "index.js",
   "scripts": {
@@ -9,7 +9,7 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "bin": {
-    "page2image": "bin/build/screenshot.js"
+    "page2image": "buildBin/screenshot.js"
   },
   "repository": {
     "type": "git",

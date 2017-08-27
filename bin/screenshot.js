@@ -20,7 +20,7 @@ async function takeAllScreenshot(screenshot) {
   const url = urls.shift();
   try {
     if (typeof url === 'string') {
-      const path = `${url}.${type}`.replace(/http[^/]+\/\//, '').replace('/', '-');
+      const path = `${url}.${type}`.replace(/http[^/]+\/\//, '').replace(/\//g, '-');
       await screenshot.init({
         screenshotConfig: Object.assign(
           { type, fullPage, path },
@@ -28,12 +28,12 @@ async function takeAllScreenshot(screenshot) {
         ),
       });
 
-      console.log(`🤖 start take screenshot with ${url}`.data);
+      console.log(`🤖  start take screenshot with ${url}`.data);
       await screenshot.takeScreenshot(url);
-      console.log(`🎉 save ${url} with ${path.info}`.data);
+      console.log(`🎉  save ${url} with ${path.info}`.data);
     }
   } catch (err) {
-    console.error(`😿 cannot take screenshot with ${url}`.error);
+    console.error(`😿  cannot take screenshot with ${url}`.error);
     console.error(err);
   }
   if (urls.length > 0) await takeAllScreenshot();
