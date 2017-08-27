@@ -66,3 +66,15 @@ page2image https://github.com/Runjuu --width=1366 --height=768 --type=jpeg --qua
 
 ### Config
 In fact, each arguments could be found in [puppeteer's screenshot options](https://github.com/googlechrome/puppeteer/blob/HEAD/docs/api.md#pagescreenshotoptions)
+#### suppot
+- width
+- height
+- type
+- quality
+- fullPage
+#### default value
+- width: `1366`;
+- height: `768`;
+- type: `'png'`;
+- quality: `100`;
+- fullPage: `true`
