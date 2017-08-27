@@ -5,8 +5,7 @@
 [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](https://github.com/Runjuu/page2image/pulls)
 [![MIT Licence](https://badges.frapsoft.com/os/mit/mit.svg?v=103)](https://opensource.org/licenses/mit-license.php)
 
-page2image is a npm package for taking screenshot by<br />
-secondary package [Headless Chrome](https://developers.google.com/web/updates/2017/04/headless-chrome) and also provide [CLI](https://github.com/Runjuu/page2image#using-by-cli) command
+page2image is a npm package using [Headless Chrome](https://developers.google.com/web/updates/2017/04/headless-chrome) for taking screenshot which also provides [CLI](https://github.com/Runjuu/page2image#using-by-cli) command
 
 ## Using By Module 📦
 
@@ -71,20 +70,23 @@ In fact, each arguments could be found in [puppeteer's screenshot options](https
 ### Suppot Config
 
 #### width
-default 1366px
+default is 1366px
 > page's width
 
 #### height
-default 768px
+default is 768px
 > page's height, default will take a full page screenshot.
 
 #### type
-default 'png'
+default is'png'
 > images type
 
 #### quality
-default 100
+default is 100
 > images quality, but if the type is 'png', quality will not take effect
 
 <br/><hr/>
+- [x] take screenshots from internet pages
+- [ ] take screenshots from local html file
+
 ### 🤔 have any questions? 👉 [new issues](https://github.com/Runjuu/page2image/issues/new) 😉
