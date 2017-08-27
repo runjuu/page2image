@@ -62,3 +62,7 @@ demo/
 src/
 app.js
 
+*.png
+*.jpg
+*.jpeg
+

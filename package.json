@@ -1,6 +1,6 @@
 {
   "name": "page2image",
-  "version": "1.2.3",
+  "version": "1.2.4",
   "description": "it's a npm package by secondary package Headless Chrome and also provide CLI command",
   "main": "index.js",
   "scripts": {

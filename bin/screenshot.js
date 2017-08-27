@@ -14,7 +14,7 @@ colors.setTheme({
 
 const urlReg = /^(http:\/\/www\.|https:\/\/www\.|http:\/\/|https:\/\/)?[a-z0-9]+([-.][a-z0-9]+)*\.[a-z]{2,5}(:[0-9]{1,5})?(\/.*)?$/;
 const urls = Object.keys(args).filter(key => urlReg.test(key));
-const { width = 1366, height = 768, type = 'png', quality = 100, fullPage = true } = args;
+const { width = 1366, height, type = 'png', quality = 100 } = args;
 
 async function takeAllScreenshot(screenshot) {
   const url = urls.shift();
@@ -23,8 +23,9 @@ async function takeAllScreenshot(screenshot) {
       const path = `${url}.${type}`.replace(/http[^/]+\/\//, '').replace(/\//g, '-');
       await screenshot.init({
         screenshotConfig: Object.assign(
-          { type, fullPage, path },
+          { type, path },
           type === 'jpeg' ? { quality } : null,
+          height ? null : { fullPage: true },
         ),
       });
 
@@ -49,7 +50,7 @@ async function takeAllScreenshot(screenshot) {
         imageElm.complete ? loaded + 1 : loaded
       ), 0);
     },
-    viewportConfig: { width, height },
+    viewportConfig: { width, height: height || 768 },
   });
   await takeAllScreenshot(screenshot);
   process.exit();
