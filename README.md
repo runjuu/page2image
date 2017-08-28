@@ -73,7 +73,7 @@ npm i page2image --global
 > page2image https://github.com/Runjuu https://github.com/Runjuu --type=jpeg --quality=80
 ```
 
-### Config <argv>: <default value>
+### Config \<argv\>: \<default value\>
 
 #### width: 1366
 > Page width in pixels.
