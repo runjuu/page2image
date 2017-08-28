@@ -7,7 +7,7 @@
 [![Greenkeeper badge](https://badges.greenkeeper.io/Runjuu/page2image.svg)](https://greenkeeper.io/)
 [![MIT Licence](https://badges.frapsoft.com/os/mit/mit.svg?v=103)](https://opensource.org/licenses/mit-license.php)
 
-page2image is a npm package using [Headless Chrome](https://developers.google.com/web/updates/2017/04/headless-chrome) for taking screenshot which also provides [CLI](https://github.com/Runjuu/page2image#using-by-cli) command
+page2image is a npm package using [Headless Chrome](https://developers.google.com/web/updates/2017/04/headless-chrome) for taking screenshot which also provides [CLI](https://github.com/Runjuu/page2image#using-by-cli-️) command
 
 ## Using By Module 📦
 
