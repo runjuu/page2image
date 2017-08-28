@@ -52,7 +52,11 @@ Accept a [Config](https://github.com/Runjuu/page2image#config) object and next t
 - [waitForFunction](https://github.com/googlechrome/puppeteer/blob/HEAD/docs/api.md#pagewaitforfunctionpagefunction-options-args)
 - [viewportConfig](https://github.com/googlechrome/puppeteer/blob/HEAD/docs/api.md#pageviewport)
 - [screenshotConfig](https://github.com/googlechrome/puppeteer/blob/HEAD/docs/api.md#pagescreenshotoptions)
+- [waitFor](https://github.com/googlechrome/puppeteer/blob/HEAD/docs/api.md#pagewaitforselectororfunctionortimeout-options)
+- `disableJS`<[boolean](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Data_structures#Boolean_type)>
+  - whether or not to disable JavaScript on the page. Defaults to `false`
 
+---
 ## Using By CLI ⌨️
 
 ### Install
@@ -87,13 +91,13 @@ npm i page2image --global
 > Specify device scale factor.
 
 #### disableJS: false
-> Whether or not to disable JavaScript on the page
+> Whether or not to disable JavaScript on the page.
 
 #### waitUntil: networkidle
 > When to consider navigation succeeded. [more details](https://github.com/googlechrome/puppeteer/blob/HEAD/docs/api.md#pagegotourl-options)
 
 #### sleep: disable
-> Wait ${sleep} milliseconds to take screenshot
+> Wait ${sleep} milliseconds to take screenshot.
 
 <br/><hr/>
 - [x] take screenshots from url
