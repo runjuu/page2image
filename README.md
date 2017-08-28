@@ -86,7 +86,7 @@ default is 100
 > images quality, but if the type is 'png', quality will not take effect
 
 <br/><hr/>
-- [x] take screenshots from internet pages
+- [x] take screenshots from url
 - [ ] take screenshots from local html file
 
 ### 🤔 have any questions? 👉 [new issues](https://github.com/Runjuu/page2image/issues/new) 😉
