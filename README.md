@@ -96,7 +96,7 @@ npm i page2image --global
 #### waitUntil: networkidle
 > When to consider navigation succeeded. [more details](https://github.com/googlechrome/puppeteer/blob/HEAD/docs/api.md#pagegotourl-options)
 
-#### sleep: disable
+#### sleep: 0
 > Wait ${sleep} milliseconds to take screenshot.
 
 <br/><hr/>
