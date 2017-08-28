@@ -12,14 +12,14 @@ colors.setTheme({
   error: 'red',
 });
 
-const urlReg = /^(http:\/\/www\.|https:\/\/www\.|http:\/\/|https:\/\/)?[a-z0-9]+([-.][a-z0-9]+)*\.[a-z]{2,5}(:[0-9]{1,5})?(\/.*)?$/;
-const urls = Object.keys(args).filter(key => urlReg.test(key));
+const urls = Object.keys(args).filter(key => args[key] === true);
 const { width = 1366, height, type = 'png', quality = 100 } = args;
 
 async function takeAllScreenshot(screenshot) {
-  const url = urls.shift();
+  let url = urls.shift();
   try {
     if (typeof url === 'string') {
+      if (url.indexOf('://') === -1) { url = `http://${url}`; }
       const path = `${url}.${type}`.replace(/http[^/]+\/\//, '').replace(/\//g, '-');
       await screenshot.init({
         screenshotConfig: Object.assign(
