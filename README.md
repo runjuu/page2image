@@ -92,7 +92,7 @@ npm i page2image --global
 > Specify device scale factor.
 
 #### disableJS: false
-> Whether or not to disable JavaScript on the page.
+> To disable JavaScript on the page.
 
 #### waitUntil: networkidle
 > When to consider navigation succeeded. [more details](https://github.com/googlechrome/puppeteer/blob/HEAD/docs/api.md#pagegotourl-options)
