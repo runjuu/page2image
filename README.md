@@ -76,10 +76,10 @@ npm i page2image --global
 ### Config <argv>: <default value>
 
 #### width: 1366
-> page width in pixels.
+> Page width in pixels.
 
 #### height: 768
-> page height in pixels, default will take a full page screenshot.
+> Page height in pixels, default will take a full page screenshot.
 
 #### type: png
 > Specify screenshot type, could be either 'jpeg' or 'png'.
@@ -100,7 +100,7 @@ npm i page2image --global
 > Wait ${sleep} milliseconds to take screenshot.
 
 <br/><hr/>
-- [x] take screenshots from url
+- [x] take screenshots via url
 - [ ] take screenshots from local html file
 
 ### 🤔 have any questions? 👉 [new issues](https://github.com/Runjuu/page2image/issues/new) 😉
