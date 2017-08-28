@@ -21,9 +21,11 @@ class Screenshot {
     const {
       waitForFunction, waitUntil,
       screenshotConfig, viewportConfig,
+      disableJS,
     } = this.config;
 
     await checkBeforeRun(viewportConfig, page.setViewport.bind(page));
+    await checkBeforeRun(disableJS, page.setJavaScriptEnabled.bind(page, false));
     await page.goto(url, { waitUntil });
     await checkBeforeRun(waitForFunction, page.waitForFunction.bind(page));
 

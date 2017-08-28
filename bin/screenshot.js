@@ -2,7 +2,7 @@
 /* eslint-disable no-console */
 const colors = require('colors');
 const args = require('args-parser')(process.argv);
-const Screenshot = require('../').default;
+const { default: Screenshot } = require('../');
 
 colors.setTheme({
   info: 'green',
@@ -12,8 +12,9 @@ colors.setTheme({
   error: 'red',
 });
 
-const urls = Object.keys(args).filter(key => args[key] === true);
-const { width = 1366, height, type = 'png', quality = 100, dpr: deviceScaleFactor = 2 } = args;
+const isUrl = url => /[^\w]/g.test(url);
+const urls = Object.keys(args).filter(key => isUrl(key));
+const { width = 1366, height, type = 'png', quality = 100, dpr: deviceScaleFactor = 2, disableJS = false, waitUntil = 'networkidle' } = args;
 
 async function takeAllScreenshot(screenshot) {
   let url = urls.shift();
@@ -22,10 +23,12 @@ async function takeAllScreenshot(screenshot) {
       if (url.indexOf('://') === -1) { url = `http://${url}`; }
       const path = `${url}.${type}`.replace(/http[^/]+\/\//, '').replace(/\//g, '-');
       await screenshot.init({
+        disableJS,
+        waitUntil,
         screenshotConfig: Object.assign(
           { type, path },
-          type === 'jpeg' ? { quality } : null,
-          height ? null : { fullPage: true },
+          type === 'jpeg' ? { quality } : null, // only jpeg have quality
+          height ? null : { fullPage: true }, // when height is not specified, using fullPage
         ),
       });
 
