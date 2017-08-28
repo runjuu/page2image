@@ -21,13 +21,14 @@ class Screenshot {
     const {
       waitForFunction, waitUntil,
       screenshotConfig, viewportConfig,
-      disableJS,
+      disableJS, waitFor,
     } = this.config;
 
     await checkBeforeRun(viewportConfig, page.setViewport.bind(page));
     await checkBeforeRun(disableJS, page.setJavaScriptEnabled.bind(page, false));
     await page.goto(url, { waitUntil });
-    await checkBeforeRun(waitForFunction, page.waitForFunction.bind(page));
+    await checkBeforeRun(waitFor, page.waitFor.bind(page));
+    await checkBeforeRun(waitForFunction, page.waitFor.bind(page));
 
     const pic = await page.screenshot(screenshotConfig);
 
@@ -41,6 +42,7 @@ class Screenshot {
     this.config = Object.assign({
       waitForFunction: null,
       waitUntil: null,
+      waitFor: null,
       viewportConfig: null,
       screenshotConfig: {
         quality: 80,
