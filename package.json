@@ -19,7 +19,13 @@
     "url": "https://github.com/Runjuu/page2image/issues"
   },
   "homepage": "https://github.com/Runjuu/page2image#readme",
-  "keywords": ["page2image", "screenshot", "puppeteer", "headless-chrome", "cli"],
+  "keywords": [
+    "page2image",
+    "screenshot",
+    "puppeteer",
+    "headless-chrome",
+    "cli"
+  ],
   "author": "Runjuu",
   "license": "MIT",
   "dependencies": {
