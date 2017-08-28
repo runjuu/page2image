@@ -14,7 +14,7 @@ colors.setTheme({
 
 const isUrl = url => /[^\w]/g.test(url);
 const urls = Object.keys(args).filter(key => isUrl(key));
-const { width = 1366, height, type = 'png', quality = 100, dpr: deviceScaleFactor = 2, disableJS = false, waitUntil = 'networkidle' } = args;
+const { width = 1366, height, type = 'png', quality = 100, dpr: deviceScaleFactor = 2, disableJS = false, waitUntil = 'networkidle', sleep } = args;
 
 async function takeAllScreenshot(screenshot) {
   let url = urls.shift();
@@ -23,6 +23,7 @@ async function takeAllScreenshot(screenshot) {
       if (url.indexOf('://') === -1) { url = `http://${url}`; }
       const path = `${url}.${type}`.replace(/http[^/]+\/\//, '').replace(/\//g, '-');
       await screenshot.init({
+        waitFor: sleep,
         disableJS,
         waitUntil,
         screenshotConfig: Object.assign(
