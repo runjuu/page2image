@@ -81,7 +81,7 @@ npm i page2image --global
 #### height: 768
 > page height in pixels, default will take a full page screenshot.
 
-#### type: 'png'
+#### type: png
 > Specify screenshot type, could be either 'jpeg' or 'png'.
 
 #### quality: 100
