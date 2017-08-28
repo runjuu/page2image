@@ -1,0 +1,14 @@
+language: node_js
+dist: precise
+node_js:
+- '7'
+- '8'
+script:
+- npm run build
+deploy:
+  api_key:
+    secure: 0bhvBJZAjE9r0LvH1aaxVmDdQ8VekjAO48MTXoI97KFS7fbCnGj/wv8HM/z6RaJ+6x6otHj0X7WelycvX30rDYzEXicmvUGqDX9jVAUwUDIcUTbZH+pRthmE0KTTMzV8czSioJ4eDYfVWEkRCapSp6+7lKzN98Zwx6wIqgk7DRQFpvx3vMej3roV69o4XcMa9bmi1TlZ9HHoa2RZcSI2gBZiiY2tJm9pW3TpdQEMZw51nI6oFRnFVEU1RCIm7e//J2j3p8nazpKt1jdKcggYNkRDzafGc5rqqVA7XVHjT0pYW2hjY1jUWbtfcnYBnmO75LHI4l2kFIBDOG7kOMcxXy81dDU1zQmaHU/SArxYEX4qPoceRctjIU3k57mAaT5EKcgRvFmHvUEgC97aK0LQrFSGdSUO6s4+j9VwAoFj0juq5YX6n1ImMEuI8+aNqJynPXgrqTWhUmhxishh7Zt8+IWZah3S1vyENQlv0FUYzzMDg7xsR/6e4DiwS1i0BmQrXjvudQ3aGUCtW1miCufPvwMJwCESnRMXhYWeyJ6oyOuKhBqCYx7F7HshvutYLdA8nkgMmccjVK97HCkVu0RDwam0SRI0r70E5/iYdaaTUbZQ4D2JGN67+OUQrmeh5LONL6oJA5TV78XXo5cYthug9AVySBuzqRIS/AR3irIDEUA=
+  skip_cleanup: true
+  on:
+    tags: true
+    branch: master
