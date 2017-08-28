@@ -1,5 +1,7 @@
 #  📷 page2image
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/Runjuu/page2image.svg)](https://greenkeeper.io/)
+
 [![npm version](https://badge.fury.io/js/page2image.svg)](https://www.npmjs.com/package/page2image)
 [![Total downloads](https://img.shields.io/npm/dt/page2image.svg)](https://www.npmjs.com/package/page2image)
 [![Build Status](https://travis-ci.org/Runjuu/page2image.svg?branch=master)](https://travis-ci.org/Runjuu/page2image)
