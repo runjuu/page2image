@@ -41,7 +41,7 @@ async function takeAllScreenshot(screenshot) {
     console.error(`😿  cannot take screenshot with ${url}`.error);
     console.error(err);
   }
-  if (urls.length > 0) await takeAllScreenshot();
+  if (urls.length > 0) await takeAllScreenshot(screenshot);
 }
 
 (async () => {
