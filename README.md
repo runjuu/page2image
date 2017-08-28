@@ -43,7 +43,7 @@ screenshot
 #### takeScreenshot(url:string)
 Accept a url string as an argument and return an image Buffer
 
-#### init([Config:object](https://github.com/Runjuu/page2image#config))
+#### init([Config](https://github.com/Runjuu/page2image#config))
 Accept a [Config](https://github.com/Runjuu/page2image#config) object and next time calling takeScreenshot will using new config to take screenshot
 
 ### Config: {}
@@ -52,7 +52,11 @@ Accept a [Config](https://github.com/Runjuu/page2image#config) object and next t
 - [waitForFunction](https://github.com/googlechrome/puppeteer/blob/HEAD/docs/api.md#pagewaitforfunctionpagefunction-options-args)
 - [viewportConfig](https://github.com/googlechrome/puppeteer/blob/HEAD/docs/api.md#pageviewport)
 - [screenshotConfig](https://github.com/googlechrome/puppeteer/blob/HEAD/docs/api.md#pagescreenshotoptions)
+- [waitFor](https://github.com/googlechrome/puppeteer/blob/HEAD/docs/api.md#pagewaitforselectororfunctionortimeout-options)
+- `disableJS`<[boolean](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Data_structures#Boolean_type)>
+  - whether or not to disable JavaScript on the page. Defaults to `false`
 
+---
 ## Using By CLI ⌨️
 
 ### Install
@@ -62,29 +66,38 @@ npm i page2image --global
 
 ### Quick Examples
 ```bash
-page2image https://github.com/Runjuu --type=jpeg --quality=80
+# Single page
+> page2image https://github.com/Runjuu --type=jpeg --quality=80
+
+# Multi-page
+> page2image https://github.com/Runjuu https://github.com/Runjuu --type=jpeg --quality=80
 ```
 
-### Config
-In fact, each arguments could be found in [puppeteer's screenshot options](https://github.com/googlechrome/puppeteer/blob/HEAD/docs/api.md#pagescreenshotoptions)
+### Config <argv>: <default value>
 
-### Suppot Config
+#### width: 1366
+> page width in pixels.
 
-#### width
-default is 1366px
-> page's width
+#### height: 768
+> page height in pixels, default will take a full page screenshot.
 
-#### height
-default is 768px
-> page's height, default will take a full page screenshot.
+#### type: 'png'
+> Specify screenshot type, could be either 'jpeg' or 'png'.
 
-#### type
-default is 'png'
-> images type
+#### quality: 100
+> The quality of the image, between 0-100. Not applicable to png images.
 
-#### quality
-default is 100
-> images quality, but if the type is 'png', quality will not take effect
+#### dpr: 2
+> Specify device scale factor.
+
+#### disableJS: false
+> Whether or not to disable JavaScript on the page.
+
+#### waitUntil: networkidle
+> When to consider navigation succeeded. [more details](https://github.com/googlechrome/puppeteer/blob/HEAD/docs/api.md#pagegotourl-options)
+
+#### sleep: disable
+> Wait ${sleep} milliseconds to take screenshot.
 
 <br/><hr/>
 - [x] take screenshots from url
