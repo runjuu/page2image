@@ -13,7 +13,7 @@ colors.setTheme({
 });
 
 const urls = Object.keys(args).filter(key => args[key] === true);
-const { width = 1366, height, type = 'png', quality = 100 } = args;
+const { width = 1366, height, type = 'png', quality = 100, dpr: deviceScaleFactor = 2 } = args;
 
 async function takeAllScreenshot(screenshot) {
   let url = urls.shift();
@@ -50,7 +50,7 @@ async function takeAllScreenshot(screenshot) {
         imageElm.complete ? loaded + 1 : loaded
       ), 0);
     },
-    viewportConfig: { width, height: height || 768 },
+    viewportConfig: { width, height: height || 768, deviceScaleFactor },
   });
   await takeAllScreenshot(screenshot);
   process.exit();
