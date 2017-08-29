@@ -22,7 +22,7 @@ import Screenshot from 'page2image';
 
 const screenshot = new Screenshot({
   waitUntil: 'networkidle',
-  waitForFunction: function waitForFunction() {
+  waitForFunction: () => {
     window.imageList = window.imageList || Array.from(document.getElementsByTagName('img'));
 
     return window.imageList.length <= window.imageList.reduce((loaded, imageElm) => (
@@ -54,9 +54,9 @@ Accept a [Config](https://github.com/Runjuu/page2image#config) object and next t
 - [viewportConfig](https://github.com/googlechrome/puppeteer/blob/HEAD/docs/api.md#pageviewport)
 - [screenshotConfig](https://github.com/googlechrome/puppeteer/blob/HEAD/docs/api.md#pagescreenshotoptions)
 - [waitFor](https://github.com/googlechrome/puppeteer/blob/HEAD/docs/api.md#pagewaitforselectororfunctionortimeout-options)
-- `disableJS`<[boolean](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Data_structures#Boolean_type)>
+- disableJS <[boolean](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Data_structures#Boolean_type)>
   - whether or not to disable JavaScript on the page. Defaults to `false`
-
+- [emulateConfig](https://github.com/GoogleChrome/puppeteer/blob/master/docs/api.md#pageemulateoptions)
 ---
 ## Using By CLI ⌨️
 
@@ -74,7 +74,7 @@ npm i page2image --global
 > page2image https://github.com/Runjuu https://github.com/Runjuu --type=jpeg --quality=80
 ```
 
-### Config \<argv\>: \<default value\>
+### Args \<argv\>: \<default value\>
 
 #### width: 1366
 > Page width in pixels.
@@ -99,6 +99,12 @@ npm i page2image --global
 
 #### sleep: 0
 > Wait ${sleep} milliseconds to take screenshot.
+
+#### emulate: none
+> List of all available devices is available in the [source code](https://github.com/Runjuu/page2image/blob/master/src/filterEmulateInfos.js). Below is an example of using `emulate` args to emulate iPhone 6
+```bash
+page2image https://github.com/Runjuu --emulate=iPhone6 
+```
 
 <br/><hr/>
 - [x] take screenshots via url
