@@ -70,5 +70,5 @@ async function takeAllScreenshot(screenshot) {
     viewportConfig: { width, height: height || 768, deviceScaleFactor },
   });
   await takeAllScreenshot(screenshot);
-  process.exit();
+  process.exit(0);
 })();
