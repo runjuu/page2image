@@ -15,14 +15,25 @@ const {
   waitUntil = 'networkidle',
   disableJS = false,
   sleep,
+  named,
 } = args;
+
+function fileName(url) {
+  let name = `${url}.${type}`.replace(/http[^/]+\/\//, '').replace(/\//g, '_');
+
+  if (!fileName.count) fileName.count = 0;
+  if (named && named !== true) name = `${named}${fileName.count > 0 ? `_${fileName.count}` : ''}.${type}`;
+
+  fileName.count += 1;
+  return name;
+}
 
 async function takeAllScreenshot(screenshot) {
   let url = urls.shift();
   try {
     if (typeof url === 'string') {
       if (url.indexOf('://') === -1) { url = `http://${url}`; }
-      const path = `${url}.${type}`.replace(/http[^/]+\/\//, '').replace(/\//g, '-');
+      const path = fileName(url);
       await screenshot.init({
         waitFor: sleep,
         disableJS,
