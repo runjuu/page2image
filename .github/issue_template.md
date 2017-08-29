@@ -1,7 +1,6 @@
 #### Node.js & npm version
-Node.js:
-
-npm:
+Node.js: `node -v`;
+npm: `npm -v`
 #### Operating system:
 
 #### Description of the bug:
