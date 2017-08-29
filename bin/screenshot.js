@@ -1,20 +1,21 @@
 #! /usr/bin/env node
 /* eslint-disable no-console */
-const colors = require('colors');
 const args = require('args-parser')(process.argv);
 const { default: Screenshot } = require('../');
 
-colors.setTheme({
-  info: 'green',
-  data: 'grey',
-  warn: 'yellow',
-  debug: 'blue',
-  error: 'red',
-});
-
 const isUrl = url => /[^\w]/g.test(url);
 const urls = Object.keys(args).filter(key => isUrl(key));
-const { width = 1366, height, type = 'png', quality = 100, dpr: deviceScaleFactor = 2, disableJS = false, waitUntil = 'networkidle', sleep } = args;
+const {
+  width = 1366,
+  height,
+  type = 'png',
+  quality = 100,
+  dpr: deviceScaleFactor = 2,
+  emulate: emulateConfig,
+  waitUntil = 'networkidle',
+  disableJS = false,
+  sleep,
+} = args;
 
 async function takeAllScreenshot(screenshot) {
   let url = urls.shift();
@@ -26,6 +27,7 @@ async function takeAllScreenshot(screenshot) {
         waitFor: sleep,
         disableJS,
         waitUntil,
+        emulateConfig,
         screenshotConfig: Object.assign(
           { type, path },
           type === 'jpeg' ? { quality } : null, // only jpeg have quality

@@ -61,6 +61,7 @@ typings/
 demo/
 src/
 app.js
+.github/
 
 *.png
 *.jpg

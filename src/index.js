@@ -1,4 +1,14 @@
 import puppeteer from 'puppeteer';
+import colors from 'colors';
+import filterEmulateInfos from './filterEmulateInfos';
+
+colors.setTheme({
+  info: 'green',
+  data: 'grey',
+  warn: 'yellow',
+  debug: 'blue',
+  error: 'red',
+});
 
 function checkBeforeRun(config, callback) {
   if (config) return callback(config);
@@ -20,11 +30,12 @@ class Screenshot {
     const page = await this.browser.newPage();
     const {
       waitForFunction, waitUntil,
-      screenshotConfig, viewportConfig,
+      screenshotConfig, viewportConfig, emulateConfig,
       disableJS, waitFor,
     } = this.config;
 
     await checkBeforeRun(viewportConfig, page.setViewport.bind(page));
+    await checkBeforeRun(filterEmulateInfos(emulateConfig), page.emulate.bind(page));
     await checkBeforeRun(disableJS, page.setJavaScriptEnabled.bind(page, false));
     await page.goto(url, { waitUntil });
     await checkBeforeRun(waitFor, page.waitFor.bind(page));
