@@ -106,6 +106,9 @@ npm i page2image --global
 page2image https://github.com/Runjuu --emulate=iPhone6 
 ```
 
+#### named: \<default using url to named\>
+> Name of screenshot
+
 <br/><hr/>
 - [x] take screenshots via url
 - [ ] take screenshots from local html file
