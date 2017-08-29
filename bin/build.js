@@ -1,10 +1,11 @@
 #! /usr/bin/env node
 const shell = require('shelljs');
 
+const babel = 'node_modules/.bin/babel';
 const command = [
-  'npx babel app.js --out-file index.js',
-  'npx babel src --out-dir lib',
-  'npx babel bin --ignore build --out-dir buildBin',
+  `${babel} app.js --out-file index.js`,
+  `${babel} src --out-dir lib`,
+  `${babel} bin --ignore build --out-dir buildBin`,
 ];
 
 shell
