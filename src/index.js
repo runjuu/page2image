@@ -41,6 +41,7 @@ class Screenshot {
     await checkBeforeRun(waitFor, page.waitFor.bind(page));
     await checkBeforeRun(waitForFunction, page.waitFor.bind(page));
 
+    screenshotConfig.path = screenshotConfig.path.replace(/\?.*\./, '.'); // ? Symbol will cause windows user cannot save file
     const pic = await page.screenshot(screenshotConfig);
 
     page.close();

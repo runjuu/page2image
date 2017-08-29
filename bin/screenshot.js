@@ -19,7 +19,7 @@ const {
 } = args;
 
 function fileName(url) {
-  let name = `${url}.${type}`.replace(/http[^/]+\/\//, '').replace(/\//g, '_');
+  let name = `${url.replace(/http[^/]+\/\//, '').replace(/\//g, '_').replace(/\?.*/, '')}.${type}`;
 
   if (!fileName.count) fileName.count = 0;
   if (named && named !== true) name = `${named}${fileName.count > 0 ? `_${fileName.count}` : ''}.${type}`;
