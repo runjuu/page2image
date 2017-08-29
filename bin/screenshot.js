@@ -49,7 +49,7 @@ async function takeAllScreenshot(screenshot) {
 (async () => {
   const screenshot = new Screenshot({
     waitUntil: 'networkidle',
-    waitForFunction: function waitForFunction() {
+    waitForFunction: () => {
       window.imageList = window.imageList || Array.from(document.getElementsByTagName('img'));
 
       return window.imageList.length <= window.imageList.reduce((loaded, imageElm) => (
