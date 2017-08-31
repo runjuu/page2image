@@ -34,6 +34,8 @@ class Screenshot {
       disableJS, waitFor,
     } = this.config;
 
+    if (screenshotConfig.path) screenshotConfig.path = screenshotConfig.path.replace(/\?.*\./, '.'); // ? Symbol will cause windows user cannot save file
+
     await checkBeforeRun(viewportConfig, page.setViewport.bind(page));
     await checkBeforeRun(filterEmulateInfos(emulateConfig), page.emulate.bind(page));
     await checkBeforeRun(disableJS, page.setJavaScriptEnabled.bind(page, false));
@@ -41,7 +43,6 @@ class Screenshot {
     await checkBeforeRun(waitFor, page.waitFor.bind(page));
     await checkBeforeRun(waitForFunction, page.waitFor.bind(page));
 
-    screenshotConfig.path = screenshotConfig.path.replace(/\?.*\./, '.'); // ? Symbol will cause windows user cannot save file
     const pic = await page.screenshot(screenshotConfig);
 
     page.close();
