@@ -98,7 +98,10 @@ npm i page2image --global
 > When to consider navigation succeeded. [more details](https://github.com/googlechrome/puppeteer/blob/HEAD/docs/api.md#pagegotourl-options)
 
 #### sleep: 0
+##### if sleep is a number
 > Wait ${sleep} milliseconds to take screenshot.
+##### if sleep is a selector
+> Wait for the selector to appear in page
 
 #### emulate: none
 > List of all available devices is available in the [source code](https://github.com/Runjuu/page2image/blob/master/src/filterEmulateInfos.js). Below is an example of using `emulate` args to emulate iPhone 6
