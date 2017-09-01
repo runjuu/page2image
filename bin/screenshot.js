@@ -1,6 +1,7 @@
 #! /usr/bin/env node
 /* eslint-disable no-console */
 const args = require('args-parser')(process.argv);
+const packageInfo = require('../package.json');
 const { default: Screenshot } = require('../');
 
 const isUrl = url => /[^\w]/g.test(url);
@@ -16,7 +17,11 @@ const {
   disableJS = false,
   sleep,
   named,
+  version,
+  V,
 } = args;
+
+if (version || V) console.log(packageInfo.version);
 
 function fileName(url) {
   let name = `${url.replace(/http[^/]+\/\//, '').replace(/\//g, '_').replace(/\?.*/, '')}.${type}`;
