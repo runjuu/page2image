@@ -103,11 +103,14 @@ npm i page2image --global
 ##### if sleep is a selector
 > Wait for the selector to appear in page
 
-#### emulate: none
+#### emulate: false
 > List of all available devices is available in the [source code](https://github.com/Runjuu/page2image/blob/master/src/filterEmulateInfos.js). Below is an example of using `emulate` args to emulate iPhone 6
 ```bash
 page2image https://github.com/Runjuu --emulate=iPhone6 
 ```
+
+#### scrollToBottom: false
+> Wait till viewport scroll to the bottom of the page
 
 #### named: \<default using url to named\>
 > Name of screenshot
