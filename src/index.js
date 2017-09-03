@@ -39,9 +39,12 @@ class Screenshot {
     await checkBeforeRun(viewportConfig, page.setViewport.bind(page));
     await checkBeforeRun(filterEmulateInfos(emulateConfig), page.emulate.bind(page));
     await checkBeforeRun(disableJS, page.setJavaScriptEnabled.bind(page, false));
+
     await page.goto(url, { waitUntil });
-    await checkBeforeRun(waitFor, page.waitFor.bind(page));
+
+    await page.injectFile(`${__dirname}/kits.js`);
     await checkBeforeRun(waitForFunction, page.waitFor.bind(page));
+    await checkBeforeRun(waitFor, page.waitFor.bind(page));
 
     const pic = await page.screenshot(screenshotConfig);
 
