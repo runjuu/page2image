@@ -15,6 +15,7 @@ const {
   emulate: emulateConfig,
   waitUntil = 'networkidle',
   disableJS = false,
+  scrollToBottom,
   sleep,
   named,
   version,
@@ -65,13 +66,12 @@ async function takeAllScreenshot(screenshot) {
 (async () => {
   const screenshot = new Screenshot({
     waitUntil: 'networkidle',
-    waitForFunction: () => {
-      window.imageList = window.imageList || Array.from(document.getElementsByTagName('img'));
-
-      return window.imageList.length <= window.imageList.reduce((loaded, imageElm) => (
-        imageElm.complete ? loaded + 1 : loaded
-      ), 0);
-    },
+    waitForFunction: scrollToBottom ? () => {
+      if (window.page2image.scrollToBottom()) {
+        return window.page2image.checkIfImageBeenLoaded();
+      }
+      return false;
+    } : () => window.page2image.checkIfImageBeenLoaded(),
     viewportConfig: { width, height: height || 768, deviceScaleFactor },
   });
   await takeAllScreenshot(screenshot);
