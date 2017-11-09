@@ -44,7 +44,6 @@ async function takeAllScreenshot(screenshot) {
   let url = urls.shift();
   try {
     if (typeof url === 'string') {
-      console.log(isValidLocalPath(url));
       if (isValidLocalPath(url)) {
         url = `file://${path.isAbsolute(url) ? url : path.resolve(url)}`;
       } else if (url.indexOf('://') === -1) {
