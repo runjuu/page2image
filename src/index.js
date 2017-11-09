@@ -42,7 +42,7 @@ class Screenshot {
 
     await page.goto(url, { waitUntil });
 
-    await page.injectFile(`${__dirname}/kits.js`);
+    await page.addScriptTag({ path: `${__dirname}/kits.js` });
     await checkBeforeRun(waitForFunction, page.waitFor.bind(page));
     await checkBeforeRun(waitFor, page.waitFor.bind(page));
 
