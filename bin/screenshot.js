@@ -26,8 +26,18 @@ const {
 
 if (version || V) console.log(packageInfo.version);
 
+function isValidLocalPath(localPath) {
+  return localPath.replace(/\./g, '').indexOf('/') === 0;
+}
+
 function fileName(url) {
-  let name = `${url.replace(/http[^/]+\/\//, '').replace(/\//g, '_').replace(/\?.*/, '')}.${type}`;
+  let name;
+  if (isValidLocalPath(url)) {
+    name = `${path.basename(url, path.extname(url))}.${type}`;
+  } else {
+    name = `${url.replace(/http[^/]+\/\//, '').replace(/\//g, '_').replace(/\?.*/, '')}.${type}`;
+  }
+
 
   if (!fileName.count) fileName.count = 0;
   if (named && named !== true) name = `${named}${fileName.count > 0 ? `_${fileName.count}` : ''}.${type}`;
@@ -36,28 +46,28 @@ function fileName(url) {
   return name;
 }
 
-function isValidLocalPath(localPath) {
-  return localPath.replace(/\./g, '').indexOf('/') === 0;
-}
-
 async function takeAllScreenshot(screenshot) {
   let url = urls.shift();
   try {
     if (typeof url === 'string') {
+      let savedName;
       if (isValidLocalPath(url)) {
-        url = `file://${path.isAbsolute(url) ? url : path.resolve(url)}`;
+        url = path.isAbsolute(url) ? url : path.resolve(url);
+        savedName = fileName(url);
+
+        url = `file://${url}`;
       } else if (url.indexOf('://') === -1) {
         url = `http://${url}`;
+        savedName = fileName(url);
       }
 
-      const filePath = fileName(url);
       await screenshot.init({
         waitFor: sleep,
         disableJS,
         waitUntil,
         emulateConfig,
         screenshotConfig: Object.assign(
-          { type, path: filePath },
+          { type, path: savedName },
           type === 'jpeg' ? { quality } : null, // only jpeg have quality
           height ? null : { fullPage: true }, // when height is not specified, using fullPage
         ),
@@ -65,7 +75,7 @@ async function takeAllScreenshot(screenshot) {
 
       console.log(`🤖  start take screenshot with ${url}`.data);
       await screenshot.takeScreenshot(url);
-      console.log(`🎉  save ${url} with ${filePath.info}`.data);
+      console.log(`🎉  save ${url} with ${savedName.info}`.data);
     }
   } catch (err) {
     console.error(`😿  cannot take screenshot with ${url}`.error);
