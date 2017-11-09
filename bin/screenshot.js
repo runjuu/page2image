@@ -50,7 +50,8 @@ async function takeAllScreenshot(screenshot) {
   let url = urls.shift();
   try {
     if (typeof url === 'string') {
-      let savedName;
+      let savedName = fileName(url);
+
       if (isValidLocalPath(url)) {
         url = path.isAbsolute(url) ? url : path.resolve(url);
         savedName = fileName(url);
