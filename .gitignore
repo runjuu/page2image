@@ -61,3 +61,4 @@ typings/
 /lib
 /index.js
 /buildBin
+/.DS_Store

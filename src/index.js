@@ -8,6 +8,7 @@ colors.setTheme({
   warn: 'yellow',
   debug: 'blue',
   error: 'red',
+  path: 'white',
 });
 
 function checkBeforeRun(config, callback) {

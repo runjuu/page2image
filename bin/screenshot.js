@@ -74,12 +74,12 @@ async function takeAllScreenshot(screenshot) {
         ),
       });
 
-      console.log(`🤖  start take screenshot with ${url}`.data);
+      console.log(`🤖  start take screenshot with ${url.path}`.data);
       await screenshot.takeScreenshot(url);
-      console.log(`🎉  save ${url} with ${savedName.info}`.data);
+      console.log(`🎉  save ${url.path} with ${savedName.info}`.data);
     }
   } catch (err) {
-    console.error(`😿  cannot take screenshot with ${url}`.error);
+    console.error(`😿  cannot take screenshot with ${url.path}`.error);
     console.error(err);
   }
   if (urls.length > 0) await takeAllScreenshot(screenshot);
