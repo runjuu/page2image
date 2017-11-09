@@ -1,5 +1,7 @@
 #! /usr/bin/env node
 /* eslint-disable no-console */
+
+const path = require('path');
 const args = require('args-parser')(process.argv);
 const packageInfo = require('../package.json');
 const { default: Screenshot } = require('../');
@@ -34,19 +36,29 @@ function fileName(url) {
   return name;
 }
 
+function isValidLocalPath(localPath) {
+  return localPath.replace(/\./g, '').indexOf('/') === 0;
+}
+
 async function takeAllScreenshot(screenshot) {
   let url = urls.shift();
   try {
     if (typeof url === 'string') {
-      if (url.indexOf('://') === -1) { url = `http://${url}`; }
-      const path = fileName(url);
+      console.log(isValidLocalPath(url));
+      if (isValidLocalPath(url)) {
+        url = `file://${path.isAbsolute(url) ? url : path.resolve(url)}`;
+      } else if (url.indexOf('://') === -1) {
+        url = `http://${url}`;
+      }
+
+      const filePath = fileName(url);
       await screenshot.init({
         waitFor: sleep,
         disableJS,
         waitUntil,
         emulateConfig,
         screenshotConfig: Object.assign(
-          { type, path },
+          { type, path: filePath },
           type === 'jpeg' ? { quality } : null, // only jpeg have quality
           height ? null : { fullPage: true }, // when height is not specified, using fullPage
         ),
@@ -54,7 +66,7 @@ async function takeAllScreenshot(screenshot) {
 
       console.log(`🤖  start take screenshot with ${url}`.data);
       await screenshot.takeScreenshot(url);
-      console.log(`🎉  save ${url} with ${path.info}`.data);
+      console.log(`🎉  save ${url} with ${filePath.info}`.data);
     }
   } catch (err) {
     console.error(`😿  cannot take screenshot with ${url}`.error);
