@@ -72,6 +72,9 @@ npm i page2image --global
 
 # Multi-page
 > page2image https://github.com/Runjuu https://github.com/Runjuu --type=jpeg --quality=80
+
+# Local file
+> page2image ./index.html --type=jpeg --quality=80
 ```
 
 ### Args \<argv\>: \<default value\>
@@ -116,7 +119,9 @@ page2image https://github.com/Runjuu --emulate=iPhone6
 > Name of screenshot
 
 <br/><hr/>
+# To Do
 - [x] take screenshots via url
-- [ ] take screenshots from local html file
+- [x] take screenshots from local html file
+- [ ] take multiple screenshots from file
 
 ### 🤔 have any questions? 👉 [new issues](https://github.com/Runjuu/page2image/issues/new) 😉
