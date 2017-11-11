@@ -5,6 +5,7 @@
   "main": "index.js",
   "scripts": {
     "build": "node bin/build.js",
+    "dev_build": "npm run build && npm link",
     "demo": "npm run build && node demo/demo.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },

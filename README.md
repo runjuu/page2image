@@ -21,7 +21,7 @@ npm i page2image --save
 import Screenshot from 'page2image';
 
 const screenshot = new Screenshot({
-  waitUntil: 'networkidle',
+  waitUntil: 'networkidle2',
   waitForFunction: () => {
     window.imageList = window.imageList || Array.from(document.getElementsByTagName('img'));
 
@@ -97,7 +97,7 @@ npm i page2image --global
 #### disableJS: false
 > To disable JavaScript on the page.
 
-#### waitUntil: networkidle
+#### waitUntil: networkidle2
 > When to consider navigation succeeded. [more details](https://github.com/googlechrome/puppeteer/blob/HEAD/docs/api.md#pagegotourl-options)
 
 #### sleep: 0

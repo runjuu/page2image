@@ -15,7 +15,7 @@ const {
   quality = 100,
   dpr: deviceScaleFactor = 2,
   emulate: emulateConfig,
-  waitUntil = 'networkidle',
+  waitUntil = 'networkidle2',
   disableJS = false,
   scrollToBottom,
   sleep,
@@ -87,7 +87,7 @@ async function takeAllScreenshot(screenshot) {
 
 (async () => {
   const screenshot = new Screenshot({
-    waitUntil: 'networkidle',
+    waitUntil: 'networkidle2',
     waitForFunction: scrollToBottom ? () => {
       if (window.page2image.scrollToBottom()) {
         return window.page2image.checkIfImageBeenLoaded();

@@ -1,7 +1,7 @@
 const Screenshot = require('../').default;
 
 const screenshot = new Screenshot({
-  waitUntil: 'networkidle',
+  waitUntil: 'networkidle2',
   waitForFunction: function waitForFunction() {
     window.imageList = window.imageList || Array.from(document.getElementsByTagName('img'));
 
