@@ -4,12 +4,12 @@ node_js:
 - lts/*
 script:
 - npm run build
-deploy:
-  provider: npm
-  email: runjuu@icloud.com
-  api_key:
-    secure: pK/KLfnasV4eOhcwMKYAPXTm/eFOlMUm9AlRz7ZFZ0vk+EgMrlXlrCLSzB+9/UWsvz7hcoxVXkuU3Rj9HOIaEgdU//qlchtVfypQJmX84pTOns11LFW8i56C5zh3Ws5m27N2ywDz4M7OtrmCNsb5kydQerho2Uf7C/iHvYchi/WHiOzE55t0UStFTBmhatC2wLrApPzsp1ToqHMA1TNE7c7RgMQ/eLvwjY7Dv3b4nlFNjdz1EgrITKkQ13Pry1ic0Kocc5Qqj+t3cATSnoAdL3W3dPuPtzu04Nu3ZcP3U9lIHS35Bv9ivVOTJj/vAOwnijU6DRUU7fw5E9eWoaaTmRtd1uB6G0bzbq6KBrFBLXYZnndQ3l5o3RR3xgIZUy8a5AlY5NUCN0TFG5xcRTp/ZLoZf3tqcRayEY2tiRFSvPaesp4v8gplGQpPr1o0YDRisF2k9wfyV0p2xfJukIIMSfYpvMdzdHJq6u/6T/7SIQXgC3tXWGX+1r9ZHdXNNt9yZY58EmnSWdLZmURm9/H0BFZT3gltiPs6PvxWtzGPZ8nzoxlvcbeWJeL8pLuvYj2jdU0ghPLQcLAiCjf3ePrXP9g/P5aPGU3ctXmEqIHXyidaD3HjVcmgkzWVbWIFbOrZm2RxRXNN47bRNNH9tOevNHB00XEKceE6lrsAgax+iLk=
-  skip_cleanup: true
-  on:
-    tags: true
-    branch: master
+#deploy:
+#  provider: npm
+#  email: runjuu@icloud.com
+#  api_key:
+#    secure: pK/KLfnasV4eOhcwMKYAPXTm/eFOlMUm9AlRz7ZFZ0vk+EgMrlXlrCLSzB+9/UWsvz7hcoxVXkuU3Rj9HOIaEgdU//qlchtVfypQJmX84pTOns11LFW8i56C5zh3Ws5m27N2ywDz4M7OtrmCNsb5kydQerho2Uf7C/iHvYchi/WHiOzE55t0UStFTBmhatC2wLrApPzsp1ToqHMA1TNE7c7RgMQ/eLvwjY7Dv3b4nlFNjdz1EgrITKkQ13Pry1ic0Kocc5Qqj+t3cATSnoAdL3W3dPuPtzu04Nu3ZcP3U9lIHS35Bv9ivVOTJj/vAOwnijU6DRUU7fw5E9eWoaaTmRtd1uB6G0bzbq6KBrFBLXYZnndQ3l5o3RR3xgIZUy8a5AlY5NUCN0TFG5xcRTp/ZLoZf3tqcRayEY2tiRFSvPaesp4v8gplGQpPr1o0YDRisF2k9wfyV0p2xfJukIIMSfYpvMdzdHJq6u/6T/7SIQXgC3tXWGX+1r9ZHdXNNt9yZY58EmnSWdLZmURm9/H0BFZT3gltiPs6PvxWtzGPZ8nzoxlvcbeWJeL8pLuvYj2jdU0ghPLQcLAiCjf3ePrXP9g/P5aPGU3ctXmEqIHXyidaD3HjVcmgkzWVbWIFbOrZm2RxRXNN47bRNNH9tOevNHB00XEKceE6lrsAgax+iLk=
+#  skip_cleanup: true
+#  on:
+#    tags: true
+#    branch: master
