@@ -1,6 +1,7 @@
 import puppeteer from 'puppeteer';
 import colors from 'colors';
 import filterEmulateInfos from './filterEmulateInfos';
+import initPage2imageKits from './kits';
 
 colors.setTheme({
   info: 'green',
@@ -43,8 +44,8 @@ class Screenshot {
 
     await page.goto(url, { waitUntil });
 
-    await page.injectFile(`${__dirname}/kits.js`);
-    await checkBeforeRun(waitForFunction, page.waitFor.bind(page));
+    await page.evaluate(initPage2imageKits);
+    await checkBeforeRun(waitForFunction, page.waitForFunction.bind(page));
     await checkBeforeRun(waitFor, page.waitFor.bind(page));
 
     const pic = await page.screenshot(screenshotConfig);

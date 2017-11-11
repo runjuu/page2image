@@ -1,11 +1,11 @@
-(function initPage2imageKits() {
+function initPage2imageKits() {
 
   function autoScrollToBottom() {
     autoScrollToBottom.start = true;
     autoScrollToBottom.end = false;
 
     function scroll() {
-      const clientHeight = document.documentElement.clientHeight;
+      const { clientHeight } = document.documentElement;
       const scrollTimes = document.body.scrollHeight / clientHeight;
 
       autoScrollToBottom.count = autoScrollToBottom.count + 1 || 0;
@@ -38,5 +38,6 @@
     scrollToBottom,
     checkIfImageBeenLoaded,
   };
-}());
+}
 
+export default initPage2imageKits
