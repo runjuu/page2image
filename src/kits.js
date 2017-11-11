@@ -40,4 +40,4 @@ function initPage2imageKits() {
   };
 }
 
-export default initPage2imageKits
+export default initPage2imageKits;
