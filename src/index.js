@@ -19,12 +19,16 @@ function checkBeforeRun(config, callback) {
 
 class Screenshot {
 
-  static async init(config) {
-    Object.assign(this.config, config);
+  async init(config) {
+    this.updateConfig(config);
     if (!this.browser) this.browser = await puppeteer.launch(this.config.launchConfig);
   }
 
-  static async takeScreenshot(url) {
+  updateConfig(config) {
+    Object.assign(this.config, config);
+  }
+
+  async takeScreenshot(url) {
     if (!url) return null;
 
     await checkBeforeRun(!this.browser, this.init);
@@ -69,8 +73,6 @@ class Screenshot {
   }
 
   constructor(config) {
-    this.init = Screenshot.init.bind(this);
-    this.takeScreenshot = Screenshot.takeScreenshot.bind(this);
     this.config = Object.assign({
       waitForFunction: null,
       waitUntil: null,
