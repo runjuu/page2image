@@ -57,6 +57,8 @@ Accept a [Config](https://github.com/Runjuu/page2image#config) object and next t
 - disableJS <[boolean](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Data_structures#Boolean_type)>
   - whether or not to disable JavaScript on the page. Defaults to `false`
 - [emulateConfig](https://github.com/GoogleChrome/puppeteer/blob/master/docs/api.md#pageemulateoptions)
+- [selector](https://github.com/GoogleChrome/puppeteer/blob/master/docs/api.md#pageselector)
+    - if `selector` is valid, page2image will [take screenshot for selected element](https://github.com/GoogleChrome/puppeteer/blob/master/docs/api.md#elementhandlescreenshotoptions)
 ---
 ## Using By CLI ⌨️
 
