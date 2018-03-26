@@ -21,6 +21,7 @@ const {
   sleep,
   named,
   version,
+  selector,
   V,
 } = args;
 
@@ -32,18 +33,31 @@ function isValidLocalPath(localPath) {
 
 function fileName(url) {
   let name;
+
   if (isValidLocalPath(url)) {
     name = `${path.basename(url, path.extname(url))}.${type}`;
   } else {
     name = `${url.replace(/http[^/]+\/\//, '').replace(/\//g, '_').replace(/\?.*/, '')}.${type}`;
   }
 
-
   if (!fileName.count) fileName.count = 0;
   if (named && named !== true) name = `${named}${fileName.count > 0 ? `_${fileName.count}` : ''}.${type}`;
 
   fileName.count += 1;
   return name;
+}
+
+function getEvaluate() {
+  if (sleep) {
+    return {
+      func: timeout => (new Promise((resolve) => {
+        setTimeout(resolve, timeout);
+      })),
+      args: sleep,
+    };
+  } else {
+    return null;
+  }
 }
 
 async function takeAllScreenshot(screenshot) {
@@ -63,10 +77,11 @@ async function takeAllScreenshot(screenshot) {
       }
 
       await screenshot.init({
-        waitFor: sleep,
+        evaluate: getEvaluate(),
         disableJS,
         waitUntil,
         emulateConfig,
+        selector,
         screenshotConfig: Object.assign(
           { type, path: savedName },
           type === 'jpeg' ? { quality } : null, // only jpeg have quality
