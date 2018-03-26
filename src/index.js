@@ -35,9 +35,9 @@ class Screenshot {
 
     const page = await this.browser.newPage();
     const {
-      waitForFunction, waitUntil,
+      evaluate, waitUntil,
       screenshotConfig, viewportConfig, emulateConfig,
-      disableJS, waitFor, selector,
+      disableJS, selector,
     } = this.config;
 
     if (screenshotConfig.path) screenshotConfig.path = screenshotConfig.path.replace(/\?.*\./, '.'); // ? Symbol will cause windows user cannot save file
@@ -49,8 +49,9 @@ class Screenshot {
     await page.goto(url, { waitUntil });
 
     await page.evaluate(initPage2imageKits);
-    await checkBeforeRun(waitForFunction, page.waitForFunction.bind(page));
-    await checkBeforeRun(waitFor, page.waitFor.bind(page));
+    await checkBeforeRun(evaluate, () => (
+      page.evaluate(evaluate.func, evaluate.args)
+    ));
 
     async function takeScreenshot() {
       if (selector) {
@@ -74,9 +75,8 @@ class Screenshot {
 
   constructor(config) {
     this.config = Object.assign({
-      waitForFunction: null,
+      evaluate: null,
       waitUntil: null,
-      waitFor: null,
       viewportConfig: null,
       selector: null,
       screenshotConfig: {
