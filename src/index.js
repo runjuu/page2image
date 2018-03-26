@@ -31,7 +31,7 @@ class Screenshot {
   async takeScreenshot(url) {
     if (!url) return null;
 
-    await checkBeforeRun(!this.browser, this.init);
+    await checkBeforeRun(!this.browser, this.init.bind(this));
 
     const page = await this.browser.newPage();
     const {
