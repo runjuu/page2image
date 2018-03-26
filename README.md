@@ -48,17 +48,15 @@ Accept a url string as an argument and return an image Buffer
 Accept a [Config](https://github.com/Runjuu/page2image#config) object and next time calling takeScreenshot will using new config to take screenshot
 
 ### Config: {}
-
-- [waitUntil](https://github.com/googlechrome/puppeteer/blob/HEAD/docs/api.md#pagegotourl-options)
-- [waitForFunction](https://github.com/googlechrome/puppeteer/blob/HEAD/docs/api.md#pagewaitforfunctionpagefunction-options-args)
-- [viewportConfig](https://github.com/googlechrome/puppeteer/blob/HEAD/docs/api.md#pageviewport)
-- [screenshotConfig](https://github.com/googlechrome/puppeteer/blob/HEAD/docs/api.md#pagescreenshotoptions)
-- [waitFor](https://github.com/googlechrome/puppeteer/blob/HEAD/docs/api.md#pagewaitforselectororfunctionortimeout-options)
+- [waitUntil](https://github.com/GoogleChrome/puppeteer/blob/v1.2.0/docs/api.md#pagegotourl-options)
+- [evaluate](https://github.com/GoogleChrome/puppeteer/blob/v0.12.0/docs/api.md#pageevaluatepagefunction-args)
+- [viewportConfig](https://github.com/GoogleChrome/puppeteer/blob/v0.12.0/docs/api.md#pagesetviewportviewport)
+- [screenshotConfig](https://github.com/GoogleChrome/puppeteer/blob/v0.12.0/docs/api.md#pagescreenshotoptions)
 - disableJS <[boolean](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Data_structures#Boolean_type)>
   - whether or not to disable JavaScript on the page. Defaults to `false`
-- [emulateConfig](https://github.com/GoogleChrome/puppeteer/blob/master/docs/api.md#pageemulateoptions)
-- [selector](https://github.com/GoogleChrome/puppeteer/blob/master/docs/api.md#pageselector)
-    - if `selector` is valid, page2image will [take screenshot for selected element](https://github.com/GoogleChrome/puppeteer/blob/master/docs/api.md#elementhandlescreenshotoptions)
+- [emulateConfig](https://github.com/GoogleChrome/puppeteer/blob/v1.2.0/docs/api.md#pageemulateoptions)
+- [selector](https://github.com/GoogleChrome/puppeteer/blob/v1.2.0/docs/api.md#pageselector)
+    - if `selector` is valid, page2image will [take screenshot for selected element](https://github.com/GoogleChrome/puppeteer/blob/v1.2.0/docs/api.md#elementhandlescreenshotoptions)
 ---
 ## Using By CLI ⌨️
 
@@ -96,11 +94,17 @@ npm i page2image --global
 #### dpr: 2
 > Specify device scale factor.
 
+#### selector: null
+> take a screenshot for the selected element
+```bash
+page2image https://github.com/Runjuu --selector=".js-contribution-graph"
+```
+
 #### disableJS: false
 > To disable JavaScript on the page.
 
 #### waitUntil: networkidle2
-> When to consider navigation succeeded. [more details](https://github.com/googlechrome/puppeteer/blob/HEAD/docs/api.md#pagegotourl-options)
+> When to consider navigation succeeded. [more details](https://github.com/GoogleChrome/puppeteer/blob/v1.2.0/docs/api.md#pagegotourl-options)
 
 #### sleep: 0
 ##### if sleep is a number
