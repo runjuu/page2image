@@ -1,6 +1,6 @@
 {
   "name": "page2image",
-  "version": "2.0.1",
+  "version": "2.1.0",
   "description": "📷 page2image is an npm package for taking screenshot which also provides CLI command",
   "main": "index.js",
   "scripts": {
