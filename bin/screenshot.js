@@ -1,6 +1,7 @@
 #! /usr/bin/env node
 /* eslint-disable no-console */
 
+const os = require('os');
 const path = require('path');
 const args = require('args-parser')(process.argv);
 const packageInfo = require('../package.json');
@@ -20,6 +21,7 @@ const {
   scrollToBottom,
   sleep,
   named,
+  path: outputPath = './',
   version,
   selector,
   V,
@@ -45,6 +47,13 @@ function fileName(url) {
 
   fileName.count += 1;
   return name;
+}
+
+function withOutputPath(savedName) {
+  return path.join(
+    outputPath.replace(/^~/, os.homedir()),
+    savedName,
+  );
 }
 
 function getEvaluate() {
@@ -83,7 +92,7 @@ async function takeAllScreenshot(screenshot) {
         emulateConfig,
         selector,
         screenshotConfig: Object.assign(
-          { type, path: savedName },
+          { type, path: withOutputPath(savedName) },
           type === 'jpeg' ? { quality } : null, // only jpeg have quality
           height ? null : { fullPage: true }, // when height is not specified, using fullPage
         ),
@@ -91,7 +100,7 @@ async function takeAllScreenshot(screenshot) {
 
       console.log(`🤖  start take screenshot with ${url.path}`.data);
       await screenshot.takeScreenshot(url);
-      console.log(`🎉  save ${url.path} with ${savedName.info}`.data);
+      console.log(`🎉  save ${url.path} at ${withOutputPath(savedName).info}`.data);
     }
   } catch (err) {
     console.error(`😿  cannot take screenshot with ${url.path}`.error);
