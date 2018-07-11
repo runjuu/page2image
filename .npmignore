@@ -60,10 +60,14 @@ typings/
 .idea/
 demo/
 src/
+bin/
 app.js
 .github/
+
+.babelrc
+.eslintrc
+.travis.yml
 
 *.png
 *.jpg
 *.jpeg
-
