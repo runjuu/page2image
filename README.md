@@ -117,6 +117,14 @@ page2image https://github.com/Runjuu --emulate=iPhone6
 #### named: \<default using url to named\>
 > Name of screenshot
 
+#### path: \<default using current path\>
+> Path to save the screenshot
+```bash
+page2image https://github.com/Runjuu --path=../
+page2image https://github.com/Runjuu --path=/User/someone/
+page2image https://github.com/Runjuu --path=~/Downloads
+```
+
 <br/><hr/>
 # To Do
 - [x] take screenshots via url
