@@ -32,7 +32,7 @@
   "dependencies": {
     "args-parser": "^1.1.0",
     "colors": "^1.1.2",
-    "puppeteer": "^1.2.0"
+    "puppeteer": "^1.14.0"
   },
   "devDependencies": {
     "babel-cli": "^6.26.0",
